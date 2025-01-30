@@ -5,10 +5,8 @@ import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { getCategories } from "@/queries/categories";
-import { getCourseList } from "@/queries/courses";
-
-import CourseCard from "./courses/_components/CourseCard";
+import { getCategories } from "@/quaries/categories";
+import { getCourseList } from "@/quaries/courses";
 
 const HomePage = async () => {
   const courses = await getCourseList();
@@ -109,11 +107,11 @@ const HomePage = async () => {
             Browse All <ArrowRightIcon className="h-4 w-4" />
           </Link>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
+        {/* <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
           {courses.map((course) => {
             return <CourseCard key={course.id} course={course} />;
           })}
-        </div>
+        </div> */}
       </section>
     </>
   );
