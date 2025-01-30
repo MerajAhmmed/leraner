@@ -1,7 +1,6 @@
 import "@/app/globals.css";
+import { dbConnect } from "@/service/dbConnect";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
-import { dbConnect } from "./lib/mongo";
 
 export const metadata = {
   title: "Create Next App",
