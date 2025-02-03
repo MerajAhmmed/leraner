@@ -2,7 +2,6 @@ import { SectionTitle } from "@/components/section-title";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { getCategories } from "@/quaries/categories";
@@ -36,8 +35,7 @@ const HomePage = async () => {
             Learn Today, Lead Tomorrow.
           </h1>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            “You don’t understand anything until you learn it more than one
-            way.”
+            “You dont understand anything until you learn it more than one way.”
           </p>
           <div className="flex items-center gap-3 flex-wrap justify-center">
             <Link
@@ -84,12 +82,13 @@ const HomePage = async () => {
                 className="relative overflow-hidden rounded-lg border bg-background p-2 hover:scale-105 transition-all duration-500 ease-in-out"
               >
                 <div className="flex  flex-col gap-4 items-center justify-between rounded-md p-6">
-                  <Image
+                  {/* <Image
                     src={`/assets/images/categories/${category.thumbnail}`}
                     alt={category.title}
                     width={100}
                     height={100}
-                  />
+                    unoptimized
+                  /> */}
                   <h3 className="font-bold">{category.title}</h3>
                 </div>
               </Link>

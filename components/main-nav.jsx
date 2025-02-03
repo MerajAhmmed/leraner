@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { MobileNav } from "@/components/mobile-nav";
 import { Menu, X } from "lucide-react";
@@ -14,8 +14,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+
 export function MainNav({ items, children }) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Ensure the state is updated only on the client side
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <>
@@ -39,7 +46,7 @@ export function MainNav({ items, children }) {
           </nav>
         ) : null}
 
-        {typeof window !== "undefined" && showMobileMenu && items && (
+        {isClient && showMobileMenu && items && (
           <MobileNav items={items}>{children}</MobileNav>
         )}
       </div>
@@ -70,13 +77,7 @@ export function MainNav({ items, children }) {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <div className="cursor-pointer">
-              {/* <Avatar>
-								<AvatarImage
-									src="https://github.com/shadcn.png"
-									alt="@shadcn"
-								/>
-								<AvatarFallback>CN</AvatarFallback>
-							</Avatar> */}
+              {/* Avatar can be added here if needed */}
             </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56 mt-4">
